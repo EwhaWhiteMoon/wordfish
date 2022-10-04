@@ -1,8 +1,14 @@
+import {
+	WaveGroup
+} from './wave/wavegroup.js';
+
 class App{
 	constructor(){
 		this.canvas = document.createElement('canvas');
 		this.ctx = this.canvas.getContext('2d');
-		document.body.appendchild(this.canvas);
+		document.body.appendChild(this.canvas);
+
+		this.waveGroup = new WaveGroup();
 
 		window.addEventListener('resize', this.resize.bind(this), false);
 		this.resize();
@@ -18,12 +24,16 @@ class App{
 		this.canvas.height = this.stageHeight * 2;
 
 		this.ctx.scale(2, 2);
+
+		this.waveGroup.resize(this.stageWidth, this.stageHeight);
 	}
 
 	animate(timestamp){
 		this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
-		requsetAnimationFrame(this.animate.bind(this));
+		this.waveGroup.draw(this.ctx);
+
+		requestAnimationFrame(this.animate.bind(this));
 	}
 }
 
