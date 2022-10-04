@@ -2,6 +2,10 @@ import {
 	WaveGroup
 } from './wave/wavegroup.js';
 
+import {
+	FishGroup
+} from './word/fishgroup.js';
+
 class App{
 	constructor(){
 		this.canvas = document.createElement('canvas');
@@ -9,6 +13,7 @@ class App{
 		document.body.appendChild(this.canvas);
 
 		this.waveGroup = new WaveGroup();
+		this.fishGroup = new FishGroup();
 
 		window.addEventListener('resize', this.resize.bind(this), false);
 		this.resize();
@@ -26,12 +31,14 @@ class App{
 		this.ctx.scale(2, 2);
 
 		this.waveGroup.resize(this.stageWidth, this.stageHeight);
+		this.fishGroup.resize(this.stageWidth, this.stageHeight);
 	}
 
 	animate(timestamp){
 		this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
 
 		this.waveGroup.draw(this.ctx);
+		this.fishGroup.draw(this.ctx);
 
 		requestAnimationFrame(this.animate.bind(this));
 	}
