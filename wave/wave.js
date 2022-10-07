@@ -33,7 +33,7 @@ export class Wave{
 			this.points[i] = new WavePoint(
 				this.pointGap * i,
 				this.waveHeight,
-				i + this.offset,
+				- i + this.offset,
 				this.speed,
 				this.amp
 			);

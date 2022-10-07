@@ -4,7 +4,7 @@ import {
 
 import {
 	FishGroup
-} from './word/fishgroup.js';
+} from './fish/fishgroup.js';
 
 class App{
 	constructor(){
