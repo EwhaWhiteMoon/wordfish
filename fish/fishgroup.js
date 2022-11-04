@@ -5,7 +5,7 @@ import {
 export class FishGroup{
     constructor(){
         this.fish = [];
-        this.words = ["물고오오기", "FISH"];
+        this.words = ["물고오오기", "FISH", "さかな", "鱼"];
 
         /*
         this.words = this.words.map(s => 
